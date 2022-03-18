@@ -3,7 +3,7 @@ from nextcord.ext import commands
 import random
 
 bot = commands.Bot(command_prefix="유미야 ")
-bot_token = "OTUzMjMyMTkyOTYyNzAzMzYw.YjBkqQ.VCLGjVsv5Xb_jFT0ESmhLenI0Dg"
+bot_token = "OTUzMjMyMTkyOTYyNzAzMzYw.YjBkqQ.fUF9UdQ0rid_BgQ2Quegqggvfj4"
 
 learn = {}
 
@@ -32,8 +32,16 @@ async def teaching(ctx, arg1, arg2):
     learn[arg1] = arg2
     await ctx.send("배우기 성공!")
 
-@bot.command(aliases=list(learn.keys()))
-async def learn(ctx):
-    await ctx.send()
+@bot.command(aliases=list(learn.keys())[0])
+async def learnAndSay(ctx):
+    await ctx.send(learn[list(learn.keys())[0]])
+
+@bot.command(aliases=list(learn.keys())[1])
+async def learnAndSay(ctx):
+    await ctx.send(learn[list(learn.keys())[1]])
+
+@bot.command(aliases=list(learn.keys())[2])
+async def learnAndSay(ctx):
+    await ctx.send(learn[list(learn.keys())[2]])
 
 bot.run(bot_token)
